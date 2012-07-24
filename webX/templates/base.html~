@@ -1,0 +1,96 @@
+{% block dtd %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% endblock dtd %}
+
+{% block html_tag %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+{% endblock html_tag %}
+	{% block head %}
+	<head>
+		<title>{% block title %}Hello, world!{% endblock title %}</title>
+		
+		{% block head_favicon %}
+		<link rel="icon" href="http:///static/favicon.ico" type="x-icon" />
+		<link rel="shortcut icon" href="http:///static/favicon.ico" type="x-icon" />
+		{% endblock head_favicon %}
+		
+		<!-- Block for meta -->
+		{% block head_meta %}
+            {% block head_meta_author %}{% endblock head_meta_author %}
+            {% block head_meta_charset %}<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />{% endblock head_meta_charset %}
+            {% block head_meta_content%}
+                {% block head_meta_contentlanguage %}<meta http-equiv="Content-Language" value="en-US" />{% endblock head_meta_contentlanguage %}
+                {% block head_meta_contenttype %}<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />{% endblock head_meta_contenttype %}
+            {% endblock head_meta_content %}
+            {% block head_meta_description %}{% endblock head_meta_description %}
+            {% block head_meta_keywords %}{% endblock head_meta_keywords %}
+            {% block head_meta_othertags %}{% endblock head_meta_othertags %}
+            {% block head_meta_refresh %}{% endblock head_meta_refresh %}
+            {% block head_meta_robots %}{% endblock head_meta_robots %}
+		{% endblock head_meta %}
+		
+		<!-- Block for rss feed -->
+		{% block head_rss %}{% endblock head_rss %}
+		
+		<!-- Block for css -->
+		{% block head_css %}
+		    <!-- CSS for the whole site -->
+		    {% block head_css_site %}{% endblock head_css_site %}
+		    <!-- CSS for different sections, overridden in different sections -->
+		    {% block head_css_section %}{% endblock head_css_section %}
+		    <!-- CSS for different pages, overridden in different pages -->
+		    {% block head_css_page %}{% endblock head_css_page %}
+		{% endblock head_css %}
+		
+		<!-- Block for specific section or page head -->
+		{% block head_section %}{% endblock head_section %}
+		{% block head_page %}{% endblock head_page %}
+		
+	</head>
+	{% endblock head %}
+	
+	{% block body %}
+	<body>
+	    <div id="sidebar">
+		{% block body_sidebar %}{% endblock body_sidebar %}
+		</div>
+		
+		<div id="content">
+		{% block body_content %}
+		    <div id="header">
+		    {% block body_header %}	    
+		        <!-- Header in content area-->
+                {% block body_header_banner %}{% endblock body_header_banner %}
+                {% block body_header_title %}<h1>{{page.title}}</h1>{% endblock body_header_title %}
+                {% block body_header_breadcrumb %}{{page.breadcrumb}}{% endblock body_header_breadcrumb %}
+		    {% endblock body_header %}
+		    </div>
+		    
+		    {% block body_announcement %}{% endblock body_announcement %}
+            {% block body_main %}{% endblock body_main %}
+		    
+		{% endblock body_content %}
+		</div>
+		
+		<div id="footer">
+		{% block body_footer%}
+		    {% block body_footer_breadcrumb %}{{page.breadcrumb}}{% endblock body_footer_breadcrumb %}
+		{% endblock body_footer %}
+		{% block body_footer_legal %}{% endblock body_footer_legal %}
+		</div>
+		
+	</body>
+	{% endblock body %}
+
+	{% block footer %}
+		{% block footer_javascript %}
+		    {% block footer_javascript_site %}
+		    <script type="text/javascript" src="/static/js/jquery.js"></script>
+			{% endblock footer_javascript_site %}
+			{% block footer_javascript_section %}
+			{% endblock footer_javascript_section %}
+			{% block footer_javascript_page %}
+			{% endblock footer_javascript_page %}
+		{% endblock footer_javascript %}
+	{% endblock footer %}
+</html>

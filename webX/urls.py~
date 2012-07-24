@@ -22,7 +22,7 @@ urlpatterns = patterns("",
     url(r"^openid/", include(PinaxConsumer().urls)),
 
     # Added by Joe
-    url(r"^website/", include("webX.apps.website.urls")),
+    #url(r"^website/", include("pinax.apps.website.urls")),
 )
 
 
